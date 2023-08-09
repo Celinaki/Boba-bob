@@ -34,10 +34,11 @@ padding: 2rem 1.5rem;
 display: flex;
 justify-content: space-between;
 h1{
-    font-weight: 900; 
+    font-weight: 1000; 
   font-style: italic;
   color: #B454FF;
   margin: 0;
+  font-size: 32px;
 }
 .lines{
     margin-top: .5rem;
