@@ -1,42 +1,40 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import Navigator from './components/Navigator.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+<div class="app-container">
+ <Navigator/>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+ 
 
-      <nav>
+    
+    
+
+      <!-- <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+      </nav> -->
+ 
+
 
   <RouterView />
+</div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+html,body{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.app-container{
+  margin: 0;
+  padding: 0;
+
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
 
 nav a.router-link-exact-active {
   color: var(--color-text);

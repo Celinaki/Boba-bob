@@ -1,13 +1,21 @@
-@import './base.css';
+ @import './base.css';
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 #app {
-  max-width: 1280px;
+  /* max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem; */
+  margin: 0;
 
   font-weight: normal;
 }
 
+html,body{
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+background-color: #FFF7E1;
+}
+/*
 a,
 .green {
   text-decoration: none;
@@ -32,4 +40,4 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-}
+} */
