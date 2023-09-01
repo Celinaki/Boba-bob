@@ -81,6 +81,7 @@ const teaArray = [
 <style scoped>
 
 section{
+
     display: flex;
     margin: 2rem 0rem;
     /* gap: 1rem; */
@@ -90,7 +91,7 @@ section{
     /* flex-wrap: wrap; */
     background-color:  #FFF7E1;
     /* box-shadow: 9px 8px 9px 1px rgba(0, 0, 0, 0.055); */
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1), 0px 5px 4px 0px rgba(0, 0, 0, 0.08);
+    /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1), 0px 5px 4px 0px rgba(0, 0, 0, 0.08); */
 
 }
 
@@ -102,7 +103,11 @@ span{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 2.3rem;
+    align-items: center;
+    margin-right: 2.3rem;
+    border-radius: 6px;
+    min-width: 27vw;
+    background-color:  #fcf6e5;
 }
 h3{
     font-family: 'Inter';

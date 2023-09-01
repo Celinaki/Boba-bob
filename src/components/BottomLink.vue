@@ -26,17 +26,19 @@ defineProps<{
 <style scoped>
 div{
     background-color: #DAABFF;
-    color: #8F00FF;
-    font-size: 16px;
-    font-style: italic;
     position: sticky;
     bottom: 0;
     width: 100%;
-    height: 79px;
+    height: 68px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 17px 17px 0px 0px;
 }
-
+h1{
+    color: #8F00FF;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 900;
+}
 </style>
