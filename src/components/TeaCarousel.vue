@@ -70,9 +70,12 @@ const teaArray = [
     
 <!-- <button @click="()=>store.increment()">Count {{store.count}}</button> -->
 <section >
+    
 <span v-for="bubbleTea in teaArray" :key="bubbleTea.id">
+    <router-link :to="`bubbletea/${bubbleTea.id}`">
     <img :src="bubbleTea.teaImg" alt="">
     <h3> {{ bubbleTea.title }} </h3>
+</router-link>
 </span>
 </section>
 
