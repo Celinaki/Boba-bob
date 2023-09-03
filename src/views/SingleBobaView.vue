@@ -1,32 +1,25 @@
-<template>
-    <div>
-        <h1>hej</h1>
-    <h1>hej</h1>
-    <h1>hej</h1>
-    <h1>hej</h1>
-    <h1>hej</h1>
-    <h1>hej</h1>
-    <h1>hej</h1>
-    <h1>hej</h1>
-    <h1>hej</h1>
-    </div>
 
+<template>
+    <div v-if="chosenBoba">
     
-    </template>
+        <h1>{{ chosenBoba.title }}</h1>
+<img :src=chosenBoba.teaImg alt="">
+<h3>{{ chosenBoba.price }}</h3>
+    </div>
+</template>
+
 <script setup lang="ts">
 import { onMounted, ref, } from 'vue'
-import {useIncrementStore } from '../stores/increment'
+import {useGetAllBobasStore } from '../stores/getallbobas'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const store = useGetAllBobasStore()
 
-const store = useIncrementStore()
 onMounted(() => {
-    
 })
-
-
-defineProps<{
-  bobaId:Number;
-}>()
-
+    const bobaId = Number(route.params.bubbleTeaId)
+    const bobaArray = store.teaArray;
+    const chosenBoba = bobaArray.find((bobaTea) => bobaTea.id === bobaId)
 </script>
 
 
