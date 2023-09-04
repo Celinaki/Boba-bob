@@ -30,7 +30,8 @@ onMounted(() => {
          <img :src=chosenBoba.teaImg :alt="`Image of the drink ${chosenBoba.title}`">
         </article>
         <h1>{{ chosenBoba.title }}</h1>
-        <h2>{{ chosenBoba.price }}</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, iste aperiam vitae officiis iusto excepturi sint pariatur velit eos placeat.</p>
+        <h2>{{ chosenBoba.price }} SEK</h2>
         
     </div>
     <AddToCart message="Add" :bobaType="thisBoba" />
@@ -65,14 +66,17 @@ onMounted(() => {
         }
         img{
             height: 100%;
-            transform: translateY(-25%) rotate(-10deg);
+            transform: translateY(-25%) rotate(-13deg);
             position: absolute;
         }
     }  
-    h1{
+    h1,h2{
         font-size: 28px;
         align-self: flex-start;
-        margin: 2.5rem 0rem;
+        margin: 2.5rem 0rem 1rem 0rem;
+        color: #292929;
+        font-weight: 900;
+        font-style: italic;
     } 
 }
 

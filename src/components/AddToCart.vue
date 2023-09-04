@@ -5,7 +5,7 @@ import {useIncrementStore } from '../stores/increment'
 
 const store = useIncrementStore()
 onMounted(() => {
-    
+    boba.amount
 })
 
 // defineProps<{
@@ -23,11 +23,14 @@ const props = defineProps<{
   }
 }>()
 const boba = props.bobaType;
+let bobaAmount = ref<number>(boba.amount)
+
 function decreaseAmount(){
     if(boba.amount <= 0){
         return
     }else{
       boba.amount--
+      bobaAmount.value--
     console.log(boba.amount)      
     }
 
@@ -35,6 +38,8 @@ function decreaseAmount(){
 }
 function increaseAmount(){
     boba.amount++
+    bobaAmount.value++
+
     console.log(boba.amount)
 }
 
@@ -42,10 +47,10 @@ function increaseAmount(){
 
 <template >
     <div>
-        <h2 v-on:click="increaseAmount">add</h2>
+        <h1 v-on:click="increaseAmount">add</h1>
+  <h1>{{ bobaAmount }}</h1>
+        <h1 v-on:click="decreaseAmount">dec</h1>
   
-        <h2 v-on:click="decreaseAmount">dec</h2>
-        <h1>{{ message }}</h1>
     </div>
     
 
@@ -68,8 +73,7 @@ h1{
     font-size: 22px;
     font-style: italic;
     font-weight: 900;
-}
-h2{
     padding: 1rem;
 }
+
 </style>
