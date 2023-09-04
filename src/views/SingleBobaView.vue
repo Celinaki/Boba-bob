@@ -66,7 +66,7 @@ onMounted(() => {
         }
         img{
             height: 100%;
-            transform: translateY(-25%) rotate(-13deg);
+            transform: translateY(-20%) rotate(-13deg);
             position: absolute;
         }
     }  
