@@ -97,6 +97,9 @@ section{
     /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1), 0px 5px 4px 0px rgba(0, 0, 0, 0.08); */
 
 }
+a{
+    text-decoration: none;
+}
 
 img{
     width: 80px;
