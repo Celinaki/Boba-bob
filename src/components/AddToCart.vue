@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { useIncrementStore } from '../stores/increment'
 
 
@@ -24,40 +24,40 @@ const props = defineProps<{
 }>()
 const boba = props.bobaType;
 let bobaAmount = ref<number>(boba.amount)
+let bobaPrice = ref<number>(boba.price!)
+
+const totalPrice = computed(() => bobaPrice.value * bobaAmount.value)
 
 function decreaseAmount() {
-    if (boba.amount <= 0) {
+    if (boba.amount <= 1) {
         return
     } else {
         boba.amount--
         bobaAmount.value--
         console.log(boba.amount)
     }
-
-
 }
 function increaseAmount() {
     boba.amount++
     bobaAmount.value++
-
     console.log(boba.amount)
 }
+
 
 </script>
 
 <template >
     <div>
-        <h1 v-on:click="decreaseAmount">-</h1>
-
-        <h1>{{ bobaAmount }}</h1>
-        <h1 v-on:click="increaseAmount">+</h1>
-
-
-
+        <section>
+            <h1 v-on:click="decreaseAmount">-</h1>
+            <h1>{{ bobaAmount }}</h1>
+            <h1 v-on:click="increaseAmount">+</h1>
+        </section>
+        <button>Add to cart {{ totalPrice }} SEK</button>
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 div {
     background-color: #DAABFF;
     position: sticky;
@@ -65,18 +65,34 @@ div {
     width: 100%;
     height: 68px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border-radius: 17px 17px 0px 0px;
+    button{
+        border: none;
+        border-radius: 8px;
+        margin: 1rem;
+        padding: .7rem 1rem;
+        box-shadow: 3px 2px 0px #742daa;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    section {
+    display: flex;
+        h1 {
+        color: #742daa;
+        font-size: 26 px;
+        font-style: italic;
+        font-weight: 900;
+        padding: 1rem;
+        text-shadow: 3px 2px 0px white;
+    
+
+        }
+    }
 }
 
-h1 {
-    color: #B454FF;
-    font-size: 22px;
-    font-style: italic;
-    font-weight: 900;
-    padding: 1rem;
-    text-shadow: 3px 2px 0px white;
 
-}
+
+
 </style>
