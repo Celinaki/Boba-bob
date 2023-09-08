@@ -10,9 +10,12 @@ const route = useRoute()
 const store = useGetAllBobasStore()
 
 onMounted(() => {
+
 })
     const bobaId = Number(route.params.bubbleTeaId)
     const bobaArray = store.teaArray;
+    const extraBoba = ref(false)
+    const addJelly = ref(false)
     const chosenBoba = bobaArray.find((bobaTea) => bobaTea.id === bobaId)
     const thisBoba = {
         id: bobaId,
@@ -20,7 +23,10 @@ onMounted(() => {
         price: chosenBoba?.price,
         bobaImg:chosenBoba?.teaImg,
         amount: 1,
+        addExtraBoba: extraBoba,
+        addExtraJelly: addJelly
     }
+
 </script>
 
 <template>
@@ -30,9 +36,22 @@ onMounted(() => {
          <img :src=chosenBoba.teaImg :alt="`Image of the drink ${chosenBoba.title}`">
         </article>
         <h1>{{ chosenBoba.title }}</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, iste aperiam vitae officiis iusto excepturi sint pariatur velit eos placeat.</p>
         <h2>{{ chosenBoba.price }} SEK</h2>
-        
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, iste aperiam vitae officiis iusto excepturi sint pariatur velit eos placeat.</p>
+        <section>
+            <p>Extra boba +5 SEK 
+                <input type="checkbox" 
+                v-model="extraBoba" 
+                onchange="(()=>{extraBoba = !extraBoba})" 
+                name="" id=""> </p>
+            <p>Lägg till yelly +5 SEK 
+                <input type="checkbox"
+                 v-model="addJelly"
+                 onchange="(()=>{addJelly = !addJelly})"  
+                 name=""  id=""></p>
+                 {{ addJelly }}
+        </section>
     </div>
     <AddToCart message="Add" :bobaType="thisBoba" />
 </template>
@@ -78,6 +97,21 @@ onMounted(() => {
         font-weight: 900;
         font-style: italic;
     } 
+    h2{
+        font-size: 22px;
+        margin: 0rem 0rem 1rem 0rem;
+    }
+    section{
+        width: 100%;
+        p{
+            
+        }
+        input[type="checkbox"]{
+            color: #5a064c;
+            background-color: rgb(10, 82, 58);
+        }
+    }
+
 }
 
 
