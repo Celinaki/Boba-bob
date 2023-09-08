@@ -15,7 +15,7 @@ onMounted(() => {
 const props = defineProps<{
     message: string,
     bobaType: {
-        id: number,
+    id: number,
         title?: string,
         price?: number,
         bobaImg?: string,
@@ -81,8 +81,8 @@ div {
     display: flex;
         h1 {
         color: #742daa;
-        font-size: 26 px;
-        font-style: italic;
+        font-size: 24px;
+        /* font-style: italic; */
         font-weight: 900;
         padding: 1rem;
         text-shadow: 3px 2px 0px white;
