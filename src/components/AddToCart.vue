@@ -6,6 +6,7 @@ import { useIncrementStore } from '../stores/increment'
 const store = useIncrementStore()
 onMounted(() => {
     boba.amount
+
 })
 
 // defineProps<{
@@ -20,13 +21,29 @@ const props = defineProps<{
         price?: number,
         bobaImg?: string,
         amount: number,
+        addExtraBoba:boolean,
+        addExtraJelly:boolean,
     }
 }>()
 const boba = props.bobaType;
 let bobaAmount = ref<number>(boba.amount)
 let bobaPrice = ref<number>(boba.price!)
+let addBoba = ref<boolean>(boba.addExtraBoba)
+let addJelly = ref<boolean>(boba.addExtraJelly)
 
-const totalPrice = computed(() => bobaPrice.value * bobaAmount.value)
+
+
+const totalPrice = computed(() => {
+    let price = bobaPrice.value * bobaAmount.value;
+    if(addBoba.value === true){
+        price +=5;
+    }
+    if(addJelly.value === true){
+        price +=5;
+    }
+    return price
+    }
+ )
 
 function decreaseAmount() {
     if (boba.amount <= 1) {

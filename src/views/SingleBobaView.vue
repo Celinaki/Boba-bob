@@ -50,7 +50,6 @@ onMounted(() => {
                  v-model="addJelly"
                  onchange="(()=>{addJelly = !addJelly})"  
                  name=""  id=""></p>
-                 {{ addJelly }}
         </section>
     </div>
     <AddToCart message="Add" :bobaType="thisBoba" />
@@ -107,7 +106,9 @@ onMounted(() => {
             
         }
         input[type="checkbox"]{
-            color: #5a064c;
+            height: 1.2rem;
+            width: 1.2rem;
+            accent-color: #a331b9;
             background-color: rgb(10, 82, 58);
         }
     }
