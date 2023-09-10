@@ -36,10 +36,10 @@ let addJelly = ref<boolean>(boba.addExtraJelly)
 const totalPrice = computed(() => {
     let price = bobaPrice.value * bobaAmount.value;
     if(addBoba.value === true){
-        price +=5;
+        price +=5* bobaAmount.value;
     }
     if(addJelly.value === true){
-        price +=5;
+        price +=5* bobaAmount.value;
     }
     return price
     }
@@ -60,17 +60,27 @@ function increaseAmount() {
     console.log(boba.amount)
 }
 
+let added = ref(false)
+
 
 </script>
 
 <template >
     <div>
-        <section>
+        <section v-if="!added">
             <h1 v-on:click="decreaseAmount">-</h1>
             <h1>{{ bobaAmount }}</h1>
             <h1 v-on:click="increaseAmount">+</h1>
         </section>
-        <button>Add to cart {{ totalPrice }} SEK</button>
+
+        <button 
+        v-if="!added"
+        @click="(()=> added = true)">Add to cart {{ totalPrice }} SEK</button>
+        <button 
+       
+        :class="added ? 'expanded' : 'animated-button'"
+        :style="{  transition:'850ms' }"
+        @click="(()=> added = true)">Proceed to checkout {{ totalPrice }} SEK</button>
     </div>
 </template>
 
@@ -93,6 +103,24 @@ div {
         box-shadow: 3px 2px 0px #742daa;
         font-size: 16px;
         font-weight: bold;
+    }
+    .animated-button{
+        width: 200px;
+        position: absolute;
+        top:.2rem;
+        bottom: 1rem;
+        left: 1rem;
+        transition: display 850ms ease;
+        pointer-events: none;
+        overflow: hidden;
+        visibility: hidden;
+        
+    }
+    .expanded{        
+        pointer-events: all;
+        transition: display 850ms ease;
+        display: flex;
+        width: 100%;
     }
     section {
     display: flex;
