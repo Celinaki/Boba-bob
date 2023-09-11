@@ -5,31 +5,20 @@ import Navigator from './components/Navigator.vue'
 </script>
 
 <template>
-<div class="app-container">
- <Navigator/>
-
- 
-
-    
-    
-
-      <!-- <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav> -->
- 
-
-
-  <RouterView />
-</div>
+  <div class="app-container">
+    <Navigator />
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
-html,body{
+html,
+body {
   margin: 0 !important;
   padding: 0 !important;
 }
-.app-container{
+
+.app-container {
   margin: 0;
   padding: 0;
 
