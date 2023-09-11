@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue'
-import { useIncrementStore } from '../stores/increment'
+import { useCartStore } from '../stores/addToCart'
 
 
-const store = useIncrementStore()
+const store = useCartStore()
 onMounted(() => {
     boba.amount
 
